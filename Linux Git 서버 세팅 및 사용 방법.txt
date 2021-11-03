@@ -1,0 +1,63 @@
+# Linux Git 서버 세팅 
+
+1. 
+sudo useradd -d /DATA/git -m -c "Git" -s /bin/bash git 명령어 후 
+git passwd 세팅 
+
+2. git global 설정 
+git config --global user.name "bigd2"
+git config --global user.email "bigd2@example.com"
+
+3. git repository 생성
+su - git 명령어 후 passwd 입력 후
+mkdir Repo
+
+4. 프로젝트 생성
+cd Repo 후 
+mkdir bigd2.git 
+cd bigd2.git 
+git init --bare       -> --bare는 원격저장소 그냥 git init은 로컬저장소 
+
+ls 확인해보면 여러 디렉토리와 파일들이 생성됨.
+
+5. 이제 윈도우에서 git clone을 통해 Linux의 서버와 연결
+git clone ssh://git@172.21.0.88:/DATA/git/Repo/bigd2.git 후
+git passwd 입력 
+
+
+--------------브랜치 사용----------------
+# 특정 브랜치만 clone 하기 
+## git clone --branch [브랜치이름] ssh://git@172.21.0.88:/DATA/git/Repo/bigd2.git
+-> Linux의 프로젝트가 로컬에 복사된 것을 확인할 수 있음 
+
+# git restore . 를 이용해 되돌아갈 수 있음 
+# git restore [파일명] 을 통해 특정 파일만 restore 가능 
+
+# git diff --color-words 
+# git diff --word-diff
+# git diff [파일명]
+# 특정 커밋 버전의 내용과 비교하는 방법 -> git diff 27fa75e myfile.txt
+# 특정 커밋 버전 두개의 내용을 비교하는 방법 -> git diff 27fa75e ada9b57 myfile.txt
+# 특정 커밋 버전과 dev 브랜치의 가장 최신 버전과의 차이점 중에서 src/ 디렉토리 이하의 상대 경로상의 파일들만 비교 -> git diff ada9b57 dev src/
+
+# branch 생성
+git branch dev
+
+# branch 확인 
+git branch 
+
+# branch의 마지막 커밋 메시지 확인 
+git branch -v
+
+# 생성한 브랜치로 이동하기				# 브랜치 생성 후 바로 생성한 브랜치로 이동하기 
+git checkout dev 					git checkout -b dev
+
+# 브랜치 삭제
+git branch -d dev 
+
+# 일단 20210301에 개발을 해서 나중에 dev에 merge를 시킨 후 master에 merge를 시켜야함 
+git checkout dev   
+git merge 20210301  
+명령어를 통해 dev와 20210301 merge시킨다. 
+
+
