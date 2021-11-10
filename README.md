@@ -37,7 +37,7 @@ ls 확인 시, 여러 디렉토리 및 파일이 생성됨.
 git clone ssh://git@[server IP]:/~/~/git/[Repository명]/[Project명].git
 git passwd 입력
 ```
-ssh key 생성은 나중에
+> ssh key 생성은 나중에
 
 
 
