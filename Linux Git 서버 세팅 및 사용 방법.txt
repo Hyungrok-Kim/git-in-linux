@@ -28,6 +28,7 @@ git passwd 입력
 # witch git-shell
 # chsh git -s /usr/bin/git-shell
 # cat /etc/passwd | grep git
+### 
 
 
 --------------브랜치 사용----------------
