@@ -1,70 +1,69 @@
-# Linux Git ì„œë²„ ì„¸íŒ… 
+# Linux Git ¼­¹ö ¼¼ÆÃ 
 
 1. 
-sudo useradd -d /DATA/git -m -c "Git" -s /bin/bash git ëª…ë ¹ì–´ í›„ 
-git passwd ì„¸íŒ… 
+sudo useradd -d /DATA/git -m -c "Git" -s /bin/bash git ¸í·É¾î ÈÄ 
+git passwd ¼¼ÆÃ 
 
-2. git global ì„¤ì • 
+2. git global ¼³Á¤ 
 git config --global user.name "bigd2"
 git config --global user.email "bigd2@example.com"
 
-3. git repository ìƒì„±
-su - git ëª…ë ¹ì–´ í›„ passwd ì…ë ¥ í›„
+3. git repository »ı¼º
+su - git ¸í·É¾î ÈÄ passwd ÀÔ·Â ÈÄ
 mkdir Repo
 
-4. í”„ë¡œì íŠ¸ ìƒì„±
-cd Repo í›„ 
+4. ÇÁ·ÎÁ§Æ® »ı¼º
+cd Repo ÈÄ 
 mkdir bigd2.git 
 cd bigd2.git 
-git init --bare       -> --bareëŠ” ì›ê²©ì €ì¥ì†Œ ê·¸ëƒ¥ git initì€ ë¡œì»¬ì €ì¥ì†Œ 
+git init --bare       -> --bare´Â ¿ø°İÀúÀå¼Ò ±×³É git initÀº ·ÎÄÃÀúÀå¼Ò 
 
-ls í™•ì¸í•´ë³´ë©´ ì—¬ëŸ¬ ë””ë ‰í† ë¦¬ì™€ íŒŒì¼ë“¤ì´ ìƒì„±ë¨.
+ls È®ÀÎÇØº¸¸é ¿©·¯ µğ·ºÅä¸®¿Í ÆÄÀÏµéÀÌ »ı¼ºµÊ.
 
-5. ì´ì œ ìœˆë„ìš°ì—ì„œ git cloneì„ í†µí•´ Linuxì˜ ì„œë²„ì™€ ì—°ê²°
-git clone ssh://git@172.21.0.88:/DATA/git/Repo/bigd2.git í›„
-git passwd ì…ë ¥ 
+5. ÀÌÁ¦ À©µµ¿ì¿¡¼­ git cloneÀ» ÅëÇØ LinuxÀÇ ¼­¹ö¿Í ¿¬°á
+git clone ssh://git@172.21.0.88:/DATA/git/Repo/bigd2.git ÈÄ
+git passwd ÀÔ·Â 
 
-6. git ì‚¬ìš©ìê°€ ë¦¬ëˆ…ìŠ¤ ì‰˜ ì ‘ê·¼ ë§‰ê¸°
+6. git »ç¿ëÀÚ°¡ ¸®´ª½º ½© Á¢±Ù ¸·±â
 # witch git-shell
 # chsh git -s /usr/bin/git-shell
 # cat /etc/passwd | grep git
+### 
 
 7. sshÅ°´Â »ç½Ç µî·ÏÇÏÁö ¾Ê¾Æµµ »ç¿ë°¡´ÉÇÏÁö¸¸ git ÀÛ¾÷½Ã¿¡ ¼­¹ö ÆĞ½º¿öµå¸¦ ¸Å¹ø ÀÔ·ÂÇØ¾ßÇÑ´Ù.
+--------------ºê·£Ä¡ »ç¿ë----------------
+# Æ¯Á¤ ºê·£Ä¡¸¸ clone ÇÏ±â 
+## git clone --branch [ºê·£Ä¡ÀÌ¸§] ssh://git@172.21.0.88:/DATA/git/Repo/bigd2.git
+-> LinuxÀÇ ÇÁ·ÎÁ§Æ®°¡ ·ÎÄÃ¿¡ º¹»çµÈ °ÍÀ» È®ÀÎÇÒ ¼ö ÀÖÀ½ 
 
-
---------------ë¸Œëœì¹˜ ì‚¬ìš©----------------
-# íŠ¹ì • ë¸Œëœì¹˜ë§Œ clone í•˜ê¸° 
-## git clone --branch [ë¸Œëœì¹˜ì´ë¦„] ssh://git@172.21.0.88:/DATA/git/Repo/bigd2.git
--> Linuxì˜ í”„ë¡œì íŠ¸ê°€ ë¡œì»¬ì— ë³µì‚¬ëœ ê²ƒì„ í™•ì¸í•  ìˆ˜ ìˆìŒ 
-
-# git restore . ë¥¼ ì´ìš©í•´ ë˜ëŒì•„ê°ˆ ìˆ˜ ìˆìŒ 
-# git restore [íŒŒì¼ëª…] ì„ í†µí•´ íŠ¹ì • íŒŒì¼ë§Œ restore ê°€ëŠ¥ 
+# git restore . ¸¦ ÀÌ¿ëÇØ µÇµ¹¾Æ°¥ ¼ö ÀÖÀ½ 
+# git restore [ÆÄÀÏ¸í] À» ÅëÇØ Æ¯Á¤ ÆÄÀÏ¸¸ restore °¡´É 
 
 # git diff --color-words 
 # git diff --word-diff
-# git diff [íŒŒì¼ëª…]
-# íŠ¹ì • ì»¤ë°‹ ë²„ì „ì˜ ë‚´ìš©ê³¼ ë¹„êµí•˜ëŠ” ë°©ë²• -> git diff 27fa75e myfile.txt
-# íŠ¹ì • ì»¤ë°‹ ë²„ì „ ë‘ê°œì˜ ë‚´ìš©ì„ ë¹„êµí•˜ëŠ” ë°©ë²• -> git diff 27fa75e ada9b57 myfile.txt
-# íŠ¹ì • ì»¤ë°‹ ë²„ì „ê³¼ dev ë¸Œëœì¹˜ì˜ ê°€ì¥ ìµœì‹  ë²„ì „ê³¼ì˜ ì°¨ì´ì  ì¤‘ì—ì„œ src/ ë””ë ‰í† ë¦¬ ì´í•˜ì˜ ìƒëŒ€ ê²½ë¡œìƒì˜ íŒŒì¼ë“¤ë§Œ ë¹„êµ -> git diff ada9b57 dev src/
+# git diff [ÆÄÀÏ¸í]
+# Æ¯Á¤ Ä¿¹Ô ¹öÀüÀÇ ³»¿ë°ú ºñ±³ÇÏ´Â ¹æ¹ı -> git diff 27fa75e myfile.txt
+# Æ¯Á¤ Ä¿¹Ô ¹öÀü µÎ°³ÀÇ ³»¿ëÀ» ºñ±³ÇÏ´Â ¹æ¹ı -> git diff 27fa75e ada9b57 myfile.txt
+# Æ¯Á¤ Ä¿¹Ô ¹öÀü°ú dev ºê·£Ä¡ÀÇ °¡Àå ÃÖ½Å ¹öÀü°úÀÇ Â÷ÀÌÁ¡ Áß¿¡¼­ src/ µğ·ºÅä¸® ÀÌÇÏÀÇ »ó´ë °æ·Î»óÀÇ ÆÄÀÏµé¸¸ ºñ±³ -> git diff ada9b57 dev src/
 
-# branch ìƒì„±
+# branch »ı¼º
 git branch dev
 
-# branch í™•ì¸ 
+# branch È®ÀÎ 
 git branch 
 
-# branchì˜ ë§ˆì§€ë§‰ ì»¤ë°‹ ë©”ì‹œì§€ í™•ì¸ 
+# branchÀÇ ¸¶Áö¸· Ä¿¹Ô ¸Ş½ÃÁö È®ÀÎ 
 git branch -v
 
-# ìƒì„±í•œ ë¸Œëœì¹˜ë¡œ ì´ë™í•˜ê¸°				# ë¸Œëœì¹˜ ìƒì„± í›„ ë°”ë¡œ ìƒì„±í•œ ë¸Œëœì¹˜ë¡œ ì´ë™í•˜ê¸° 
+# »ı¼ºÇÑ ºê·£Ä¡·Î ÀÌµ¿ÇÏ±â				# ºê·£Ä¡ »ı¼º ÈÄ ¹Ù·Î »ı¼ºÇÑ ºê·£Ä¡·Î ÀÌµ¿ÇÏ±â 
 git checkout dev 					git checkout -b dev
 
-# ë¸Œëœì¹˜ ì‚­ì œ
+# ºê·£Ä¡ »èÁ¦
 git branch -d dev 
 
-# ì¼ë‹¨ 20210301ì— ê°œë°œì„ í•´ì„œ ë‚˜ì¤‘ì— devì— mergeë¥¼ ì‹œí‚¨ í›„ masterì— mergeë¥¼ ì‹œì¼œì•¼í•¨ 
+# ÀÏ´Ü 20210301¿¡ °³¹ßÀ» ÇØ¼­ ³ªÁß¿¡ dev¿¡ merge¸¦ ½ÃÅ² ÈÄ master¿¡ merge¸¦ ½ÃÄÑ¾ßÇÔ 
 git checkout dev   
 git merge 20210301  
-ëª…ë ¹ì–´ë¥¼ í†µí•´ devì™€ 20210301 mergeì‹œí‚¨ë‹¤. 
+¸í·É¾î¸¦ ÅëÇØ dev¿Í 20210301 merge½ÃÅ²´Ù. 
 
 
