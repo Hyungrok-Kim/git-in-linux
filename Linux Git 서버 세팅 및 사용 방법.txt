@@ -24,6 +24,11 @@ ls 확인해보면 여러 디렉토리와 파일들이 생성됨.
 git clone ssh://git@172.21.0.88:/DATA/git/Repo/bigd2.git 후
 git passwd 입력 
 
+6. git 사용자가 리눅스 쉘 접근 막기
+# witch git-shell
+# chsh git -s /usr/bin/git-shell
+# cat /etc/passwd | grep git
+
 
 --------------브랜치 사용----------------
 # 특정 브랜치만 clone 하기 
