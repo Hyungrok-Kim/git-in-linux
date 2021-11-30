@@ -66,4 +66,10 @@ git checkout dev
 git merge 20210301  
 명령어를 통해 dev와 20210301 merge시킨다. 
 
+# git 이전 버전으로 되돌리기 
+git reset [commit 버전 아이디]
+git revert [commit 버전 아이디] 
+reset과 revert의 차이는 revert는 git log의 최근 버전 기록을 유지한채로 돌아가는 것
+reset은 git log의 최근 버전 기록을 삭제하면서 돌아가는 것이다. 
+
 
